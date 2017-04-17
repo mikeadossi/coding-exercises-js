@@ -1,0 +1,21 @@
+.home_container{
+  background-color:skyblue;
+  height:100vh;
+}
+
+.home_header{
+  font-size:3.5em;
+  max-width:60%;
+  max-width:50%;
+}
+
+.home_centered{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+}
+
+.home_content_container{
+  max-width:50%;
+}

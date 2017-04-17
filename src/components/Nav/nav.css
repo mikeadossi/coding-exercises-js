@@ -1,0 +1,50 @@
+#nav_navBar {
+  width: 20%;
+  height:100vh;
+  background-color:steelblue;
+  color:white;
+  position:fixed;
+  min-width:200px;
+}
+
+.nav_link{
+  font-size:1em;
+  text-align:center;
+  background-color:transparent;
+  border:none;
+  color:white;
+  display:block;
+  width:200px;
+}
+
+.nav_header{
+  font-size:2em;
+  text-align:center;
+  margin: 20px 0 20px 0;
+}
+
+.nav_Link:focus {
+  text-decoration: none;
+  outline:none;
+  border: none;
+  box-shadow: none;
+}
+
+.nav_link:hover{
+  color:orange;
+  cursor:pointer;
+}
+
+.nav_fontAwesome{
+  text-align:center;
+  width:100%;
+  margin-top:20px;
+}
+
+.nav_fontAwesome:hover{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+}
