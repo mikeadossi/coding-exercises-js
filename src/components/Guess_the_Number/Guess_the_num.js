@@ -7,11 +7,12 @@ export default class Guess extends React.Component{
     super(props)
     this.state = {
       guess_input_value: '',
-      guess_random_num: 10,
+      guess_random_num: '',
       guesses_too_small: [],
       guesses_too_large: [],
       guess_mystery_num: '?',
       num_of_guesses: 0,
+      disableInputElement: '',
       guess_the_number_btn_styling: 'guessTheNumber_button',
       guess_too_small_styling: 'hideGuessElement',
       guess_too_large_styling: 'hideGuessElement',
@@ -24,7 +25,6 @@ export default class Guess extends React.Component{
     this.ShowMoreThanArray = ShowMoreThanArray.bind(this);
     // this.focus = this.focus.bind(this)
     // this.resetGuessApp = this.resetGuessApp.bind(this)
-    // this.generateRandomNum = this.generateRandomNum.bind(this)
     // this.checkGuess = this.checkGuess.bind(this)
   }
 
@@ -32,13 +32,6 @@ export default class Guess extends React.Component{
   //   const session = new GuessSession()
   //   resetGuessApp()
   // }
-
-  generateRandomNum(){
-    return Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-    let guess_num = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-    console.log('guess_num: ',guess_num);
-    // set randomNum to states guess_random_num
-  }
 
   updateGuessInputVal(e){
     e.preventDefault()
@@ -66,6 +59,7 @@ export default class Guess extends React.Component{
       this.setState({
         num_of_guesses : currentNumOfGuesses,
         guess_mystery_num : randomNum,
+        disableInputElement : 'disabled',
         correct_guess_styling: 'guesses_game_over',
         guess_the_number_btn_styling: 'hideGuessElement',
         guess_too_small_styling: 'hideGuessElement',
@@ -94,8 +88,18 @@ export default class Guess extends React.Component{
     }
   }
 
+  componentDidMount() {
+    let randomNum = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+    this.setState({
+      guess_random_num : randomNum
+    })
+    console.log('randomNum: ',randomNum)
+    console.log('this.state.guess_random_num: ',this.state.guess_random_num)
+  }
+
 
   render(){
+
     return(
       <div className="section">
         <div className="header">Guess the number</div>
@@ -106,7 +110,7 @@ export default class Guess extends React.Component{
           <p>There's a number sitting inside the box, type the number you think it is.</p>
           <div>
             <form>
-            <input className="guessTheNumber_input" onChange={this.updateGuessInputVal} value={this.state.guess_input_value} placeholder="#"></input>
+            <input className="guessTheNumber_input" disabled={this.state.disableInputElement} onChange={this.updateGuessInputVal} value={this.state.guess_input_value} placeholder="#"></input>
           <button onClick={this.checkGuess} className={this.state.guess_the_number_btn_styling}>send</button>
             </form>
           </div>
