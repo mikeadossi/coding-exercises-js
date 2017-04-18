@@ -21,7 +21,7 @@ export default class Nav extends React.Component{
         <button className="nav_link" onClick={()=>this.props.pageChange("braille_page")}>braille</button>
         <button className="nav_link" onClick={()=>this.props.pageChange("string_permutations_page")}>string permutations</button>
         <button className="nav_link" onClick={()=>this.props.pageChange("finite_State_Gate_page")}>finite state gate</button>
-        <a href="https://github.com/mikeadossi/coding-exercises-js"><i className="fa fa-github nav_fontAwesome" aria-hidden="true"></i></a>
+      <a href="https://github.com/mikeadossi/coding-exercises" target="_blank"><i className="fa fa-github nav_fontAwesome" aria-hidden="true"></i></a>
       </div>
     )
   }

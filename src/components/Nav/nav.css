@@ -1,9 +1,8 @@
 #nav_navBar {
   width: 20%;
-  height:100vh;
+  height:100%;
   background-color:steelblue;
   color:white;
-  position:fixed;
   min-width:200px;
 }
 

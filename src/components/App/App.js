@@ -22,7 +22,12 @@ export default class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      currentPage: "home_page"
+      currentPage: "guess_page",
+      guess_random_num: 0,
+      guess_input_value: 0,
+      guesses_too_small: [],
+      guesses_too_large: [],
+      guess_value: '??'
     }
   }
 
@@ -34,9 +39,9 @@ export default class App extends React.Component{
 
   render(){
     return(
-      <div id="container">
+      <div id="app_container">
         <Nav pageChange={this.pageChange.bind(this)} />
-        <div id="contents">
+      <div id="app_contents">
           <Content pageName={this.state.currentPage}/>
         </div>
       </div>

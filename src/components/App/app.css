@@ -1,14 +1,13 @@
-#container {
+#app_container {
   width: 100%;;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background-color:white;
+  background-color:steelblue;
 }
-#contents {
+#app_contents {
   height: 100%;
   width:100%;
-  margin-left:20%;
   text-align:center;
 }
 .header{

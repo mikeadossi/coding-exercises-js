@@ -42,7 +42,6 @@ export default class Content extends React.Component{
 
 
   render(){
-    console.log('> '+this.props.pageName)
     return(
         <div id="content_page" className="rows">
           <div id="scrab_bagContainer" className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
