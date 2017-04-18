@@ -10,7 +10,7 @@ export default class Nav extends React.Component{
         <button className="nav_link" onClick={()=>this.props.pageChange("scrab_bag_page")}>scrab bag</button>
         <button className="nav_link" onClick={()=>this.props.pageChange("string_indices_page")}>string indices</button>
         <button className="nav_link" onClick={()=>this.props.pageChange("fibonnacci_bases_page")}>fibonnacci bases</button>
-        <button className="nav_link" onClick={()=>this.props.pageChange("the_disembowing_page")}>the disembowing</button>
+      <button className="nav_link" onClick={()=>this.props.pageChange("the_disemvowing_page")}>the disemvowing</button>
         <button className="nav_link" onClick={()=>this.props.pageChange("where_in_the_JSON_page")}>where in the JSON</button>
         <button className="nav_link" onClick={()=>this.props.pageChange("who_wants_a_date_page")}>who wants a date</button>
         <button className="nav_link" onClick={()=>this.props.pageChange("play_it_again_page")}>play it gain</button>
@@ -21,7 +21,7 @@ export default class Nav extends React.Component{
         <button className="nav_link" onClick={()=>this.props.pageChange("braille_page")}>braille</button>
         <button className="nav_link" onClick={()=>this.props.pageChange("string_permutations_page")}>string permutations</button>
         <button className="nav_link" onClick={()=>this.props.pageChange("finite_State_Gate_page")}>finite state gate</button>
-      <a href="https://github.com/mikeadossi/coding-exercises-js" target="_blank"><i className="fa fa-github nav_fontAwesome" aria-hidden="true"></i></a>
+        <a href="https://github.com/mikeadossi/coding-exercises-js" target="_blank"><i className="fa fa-github nav_fontAwesome" aria-hidden="true"></i></a>
       </div>
     )
   }

@@ -25,3 +25,19 @@
 .content_container{
   padding:0 34px 0 34px;
 }
+
+.appButtonSyling{
+  border:none;
+  color:grey;
+  margin-left:3px;
+  height:25px;
+}
+
+.appButtonSyling:hover{
+  color:white;
+  cursor:pointer;
+}
+
+.appInputStyling{
+  height:20px;
+}

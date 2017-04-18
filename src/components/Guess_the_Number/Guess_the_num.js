@@ -102,7 +102,7 @@ export default class Guess extends React.Component{
           <p>There's a number sitting inside the box, type the number you think it is.</p>
           <div>
             <form>
-            <input className="guessTheNumber_input" disabled={this.state.disableInputElement} onChange={this.updateGuessInputVal} value={this.state.guess_input_value} placeholder="#"></input>
+            <input className="guessTheNumber_input appInputStyling" disabled={this.state.disableInputElement} onChange={this.updateGuessInputVal} value={this.state.guess_input_value} placeholder="#"></input>
           <button onClick={this.checkGuess} className={this.state.guess_the_number_btn_styling}>send</button>
             </form>
           </div>
@@ -123,7 +123,8 @@ export default class Guess extends React.Component{
 
         </div>
       </div>
-    )}
+    )
+  }
 }
 
 const ShowLessThanArray = function(){

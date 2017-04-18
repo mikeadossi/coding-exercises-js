@@ -3,9 +3,9 @@ import './app.css';
 import Nav from 'components/Nav/Nav';
 import Guess from 'components/Guess_the_Number/Guess_the_num';
 import Scrab_Bag from 'components/Scrab_Bag/Scrab_Bag';
-import String_indices from 'components/String_indices/String_indices';
+import String_Indices from 'components/String_Indices/String_Indices';
 import Fibonnacci_Bases from 'components/Fibonnacci_Bases/Fibonnacci_Bases';
-import The_Disembowing from 'components/The_Disembowing/The_Disembowing';
+import The_Disemvowing from 'components/The_Disemvowing/The_Disemvowing';
 import Where_in_the_JSON from 'components/Where_in_the_JSON/Where_in_the_JSON';
 import Who_wants_a_date from 'components/Who_wants_a_date/Who_wants_a_date';
 import Play_it_again from 'components/Play_it_again/Play_it_again';
@@ -22,7 +22,7 @@ export default class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      currentPage: "scrab_bag_page",
+      currentPage: "where_in_the_JSON_page",
       guess_random_num: 0,
       guess_input_value: 0,
       guesses_too_small: [],

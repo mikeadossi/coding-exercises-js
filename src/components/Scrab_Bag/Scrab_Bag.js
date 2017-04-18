@@ -65,7 +65,7 @@ export default class Scrab_Bag extends React.Component{
           {collection}
         </div>
 
-      }
+      
 
         <input className="scrabbleBoard" placeholder="type the letters you want"/>
         <div className="scrabbleBase"></div>

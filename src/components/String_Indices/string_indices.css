@@ -1,0 +1,10 @@
+.string_indices_results{
+  height:40%;
+  width:60%;
+  max-height:400px;
+  max-width:600px;
+  background-color:white;
+  border:2px solid black;
+  margin:auto;
+  margin-top:20px;
+}
