@@ -41,6 +41,35 @@ export default class Scrab_Bag extends React.Component{
           <div className="scrabblePiece">Z</div>
           <div className="scrabblePiece">_</div>
         </div>
+
+
+
+
+
+
+
+
+         <div className="flip-container" onTouchStart="this.classList.toggle('hover');">
+          <div className="flipper">
+            <div className="front">
+              <span className="name">A</span>
+            <div className="back-original-count">*</div>
+            </div>
+            <div className="back">
+              <div className="back-original">A</div>
+            <div className="back-count">9</div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
         </div>
         <input className="scrabbleBoard" placeholder="type the letters you want"/>
         <div className="scrabbleBase"></div>
