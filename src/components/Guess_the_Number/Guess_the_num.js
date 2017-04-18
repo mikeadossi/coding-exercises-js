@@ -129,7 +129,7 @@ export default class Guess extends React.Component{
 const ShowLessThanArray = function(){
   let key = this.state.guesses_too_small.length-1
   let lessThanArray = this.state.guesses_too_small
-  let displayLessThanArray = lessThanArray.map((key) => (<div className="guess_less_than_div_element" key={key}>{this.state.guesses_too_small}</div>))
+  let displayLessThanArray = lessThanArray.map((key) => (<div className="guess_less_than_div_element" key={key}>{key}</div>))
   console.log('displayArray: ',this.state.guesses_too_small[key])
   return(
     displayLessThanArray
