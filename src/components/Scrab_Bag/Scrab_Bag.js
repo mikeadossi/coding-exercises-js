@@ -56,11 +56,13 @@ export default class Scrab_Bag extends React.Component{
             <div className="back-original-count">*</div>
             </div>
             <div className="back">
-              <div className="back-original">A</div>
-            <div className="back-count">9</div>
+              <div className="back-original">Z</div>
+            <div className="back-count">#</div>
             </div>
           </div>
         </div>
+
+
 
 
 

@@ -168,9 +168,9 @@
 }
 
 .back-original-count{
-  font-size:15px;
+  font-size:10px;
   position:absolute;
-  bottom:-5px;
+  bottom:0px;
   right:3px;
 }
 
