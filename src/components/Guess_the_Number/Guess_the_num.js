@@ -10,7 +10,8 @@ export default class Guess extends React.Component{
       guess_input_value: '',
       guess_random_num: 10,
       guesses_too_small: [],
-      guesses_too_large: []
+      guesses_too_large: [],
+      guess_mystery_num: '?'
     }
     this.updateGuessInputVal = this.updateGuessInputVal.bind(this);
     this.checkGuess = this.checkGuess.bind(this);
@@ -52,14 +53,19 @@ export default class Guess extends React.Component{
     const randomNum = this.state.guess_random_num;
     let guessesTooSmall = this.state.guesses_too_small;
     let guessesTooLarge = this.state.guesses_too_large;
-    if(inputVal = randomNum){
+    if(inputVal == randomNum){
       console.log('correct')
+      this.setState({
+        guess_mystery_num : randomNum
+      })
     } else if(inputVal < randomNum){
       guessesTooSmall.push(inputVal);
       console.log('too small');
+      console.log('this.state.guesses_too_large: ',this.state.guesses_too_small)
     } else if(inputVal > randomNum){
       guessesTooLarge.push(inputVal);
       console.log('too large');
+      console.log('this.state.guesses_too_large: ',this.state.guesses_too_large)
     }
   }
 
@@ -71,7 +77,7 @@ export default class Guess extends React.Component{
         <div className="content_container">
           <h2 className="description">Description</h2>
         <p className="instructions">Write a program that generates a number between 1 and 100. Your program will ask the user to guess the generated number. When the user types a guess, the program should tell them if they won (the guess matched the computer's number), if their guess was higher than the number the computer generated, OR if the guess was lower than the number the computer generated. Terminate the program if the user types "exit". Keep asking the user to input a number if the number differs from the computer's number (loops!).</p>
-      <div className="guessTheNumber_number">{this.props.guess_value}</div>
+      <div className="guessTheNumber_number">{this.state.guess_mystery_num}</div>
           <p>There's a number sitting inside the box, type the number you think it is.</p>
           <div>
             <form>
