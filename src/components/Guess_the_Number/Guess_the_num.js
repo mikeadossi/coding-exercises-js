@@ -11,10 +11,17 @@ export default class Guess extends React.Component{
       guess_random_num: 10,
       guesses_too_small: [],
       guesses_too_large: [],
-      guess_mystery_num: '?'
+      guess_mystery_num: '?',
+      num_of_guesses: 0,
+      guess_too_small_styling: 'hideGuessElement',
+      guess_too_large_styling: 'hideGuessElement',
+      correct_guess_styling: 'hideGuessElement'
     }
+
     this.updateGuessInputVal = this.updateGuessInputVal.bind(this);
     this.checkGuess = this.checkGuess.bind(this);
+    this.ShowLessThanArray = ShowLessThanArray.bind(this);
+    this.ShowMoreThanArray = ShowMoreThanArray.bind(this);
     // this.focus = this.focus.bind(this)
     // this.resetGuessApp = this.resetGuessApp.bind(this)
     // this.generateRandomNum = this.generateRandomNum.bind(this)
@@ -56,16 +63,31 @@ export default class Guess extends React.Component{
     if(inputVal == randomNum){
       console.log('correct')
       this.setState({
-        guess_mystery_num : randomNum
+        guess_mystery_num : randomNum,
+        correct_guess_styling: 'guesses_game_over',
+        guess_too_small_styling: 'hideGuessElement',
+        guess_too_large_styling: 'hideGuessElement',
       })
     } else if(inputVal < randomNum){
       guessesTooSmall.push(inputVal);
       console.log('too small');
       console.log('this.state.guesses_too_large: ',this.state.guesses_too_small)
+      let currentNumOfGuesses = this.state.num_of_guesses+1
+      this.setState({
+        num_of_guesses : currentNumOfGuesses,
+        guess_too_small_styling: 'guess_too_small'
+      })
+      ShowLessThanArray();
     } else if(inputVal > randomNum){
       guessesTooLarge.push(inputVal);
       console.log('too large');
-      console.log('this.state.guesses_too_large: ',this.state.guesses_too_large)
+      console.log('this.state.guesses_too_large: ',this.state.guesses_too_large);
+      let currentNumOfGuesses = this.state.num_of_guesses+1
+      this.setState({
+        num_of_guesses : currentNumOfGuesses,
+        guess_too_large_styling: 'guess_too_large'
+      })
+      ShowMoreThanArray();
     }
   }
 
@@ -87,20 +109,40 @@ export default class Guess extends React.Component{
           </div>
 
           <div className="guesses_container">
-            <div className="guess_too_small">
+            <div className="guess_too_small" className={this.state.guess_too_small_styling}>
               <div>Too Small</div>
-              <div>4</div>
+              {this.ShowLessThanArray()}
             </div>
-            <div className="guess_too_large">
+            <div className="guess_too_large" className={this.state.guess_too_large_styling}>
               <div>Too Large</div>
-              <div>9</div>
+              {this.ShowMoreThanArray()}
             </div>
-            <div className="guesses_game_over">
-              Correct Guess! 5 Guesses
+            <div className="guesses_game_over" className={this.state.correct_guess_styling}>
+              Correct Guess! {this.state.num_of_guesses} Guesses
             </div>
           </div>
 
         </div>
       </div>
     )}
+}
+
+const ShowLessThanArray = function(){
+  let key = this.state.guesses_too_small.length-1
+  let lessThanArray = this.state.guesses_too_small
+  let displayLessThanArray = lessThanArray.map((key) => (<div className="guess_less_than_div_element" key={key}>{this.state.guesses_too_small}</div>))
+  console.log('displayArray: ',this.state.guesses_too_small[key])
+  return(
+    displayLessThanArray
+  )
+}
+
+const ShowMoreThanArray = function(){
+  let key = this.state.guesses_too_large.length-1
+  let moreThanArray = this.state.guesses_too_large
+  moreThanArray = moreThanArray.sort()
+  let displayMoreThanArray = moreThanArray.map((key) => (<div className="guess_more_than_div_element" key={key}>{this.state.guesses_too_large}</div>))
+  return(
+    displayMoreThanArray
+  )
 }

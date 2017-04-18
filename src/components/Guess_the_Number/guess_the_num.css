@@ -27,11 +27,13 @@
 }
 .guess_too_small{
   width:50%;
+  height:20px;
   background-color:skyblue;
   display:inline-block;
 }
 .guess_too_large{
   width:50%;
+  height:20px;
   background-color:indianred;
   display:inline-block;
 }
@@ -40,4 +42,18 @@
   width:95%;
   background-color:moccasin;
   padding:5px;
+}
+.guess_less_than_div_element{
+  background-color:skyblue;
+  opacity:0.9;
+  height:20px;
+}
+.guess_more_than_div_element{
+  background-color:indianred;
+  opacity:0.9;
+  height:20px;
+}
+.hideGuessElement{
+  display:none;
+  color:red;
 }
