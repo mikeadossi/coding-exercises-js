@@ -140,7 +140,7 @@ const ShowMoreThanArray = function(){
   let key = this.state.guesses_too_large.length-1
   let moreThanArray = this.state.guesses_too_large
   moreThanArray = moreThanArray.sort()
-  let displayMoreThanArray = moreThanArray.map(() => (<div className="guess_more_than_div_element" key={key}> {this.state.guesses_too_large}</div>))
+  let displayMoreThanArray = moreThanArray.map((key) => (<div className="guess_more_than_div_element" key={key}>{key}</div>))
   return(
     displayMoreThanArray
   )
