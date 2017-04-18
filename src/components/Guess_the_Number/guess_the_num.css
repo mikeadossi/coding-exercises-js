@@ -45,12 +45,12 @@
 }
 .guess_less_than_div_element{
   background-color:skyblue;
-  opacity:0.9;
+  opacity:0.8;
   height:20px;
 }
 .guess_more_than_div_element{
   background-color:indianred;
-  opacity:0.9;
+  opacity:0.8;
   height:20px;
 }
 .hideGuessElement{

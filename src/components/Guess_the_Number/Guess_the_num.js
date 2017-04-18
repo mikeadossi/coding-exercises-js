@@ -1,6 +1,5 @@
 import React from 'react';
 import './guess_the_num.css';
-import './guess_logic.js';
 
 export default class Guess extends React.Component{
 
@@ -13,6 +12,7 @@ export default class Guess extends React.Component{
       guesses_too_large: [],
       guess_mystery_num: '?',
       num_of_guesses: 0,
+      guess_the_number_btn_styling: 'guessTheNumber_button',
       guess_too_small_styling: 'hideGuessElement',
       guess_too_large_styling: 'hideGuessElement',
       correct_guess_styling: 'hideGuessElement'
@@ -60,11 +60,14 @@ export default class Guess extends React.Component{
     const randomNum = this.state.guess_random_num;
     let guessesTooSmall = this.state.guesses_too_small;
     let guessesTooLarge = this.state.guesses_too_large;
+    let currentNumOfGuesses = this.state.num_of_guesses+1
     if(inputVal == randomNum){
       console.log('correct')
       this.setState({
+        num_of_guesses : currentNumOfGuesses,
         guess_mystery_num : randomNum,
         correct_guess_styling: 'guesses_game_over',
+        guess_the_number_btn_styling: 'hideGuessElement',
         guess_too_small_styling: 'hideGuessElement',
         guess_too_large_styling: 'hideGuessElement',
       })
@@ -104,7 +107,7 @@ export default class Guess extends React.Component{
           <div>
             <form>
             <input className="guessTheNumber_input" onChange={this.updateGuessInputVal} value={this.state.guess_input_value} placeholder="#"></input>
-            <button onClick={this.checkGuess} className="guessTheNumber_button">send</button>
+          <button onClick={this.checkGuess} className={this.state.guess_the_number_btn_styling}>send</button>
             </form>
           </div>
 
@@ -141,7 +144,7 @@ const ShowMoreThanArray = function(){
   let key = this.state.guesses_too_large.length-1
   let moreThanArray = this.state.guesses_too_large
   moreThanArray = moreThanArray.sort()
-  let displayMoreThanArray = moreThanArray.map((key) => (<div className="guess_more_than_div_element" key={key}>{this.state.guesses_too_large}</div>))
+  let displayMoreThanArray = moreThanArray.map(() => (<div className="guess_more_than_div_element" key={key}> {this.state.guesses_too_large}</div>))
   return(
     displayMoreThanArray
   )
