@@ -1,0 +1,76 @@
+.scrabblePiece{
+  background-color:#E6D8EA;
+  border-bottom:2.5px solid #926566;
+  border-top: 1px solid #CC9692;
+  border-right:1px solid #CC9692;
+  border-left:1px solid #CC9692;
+  height:40px;
+  width:40px;
+  font-size:30px;
+  border-radius:5px;
+  margin:auto;
+  min-width:20px;
+  display:inline-block;
+  margin-left:3px;
+  margin-bottom:5px;
+}
+
+.scrabblePieceContainer{
+  width:70%;
+  margin:auto;
+}
+
+.scrabbleBoard{
+  background-color:saddlebrown;
+  color:white;
+  width:60%;
+  height:25px;
+  text-align:center;
+  margin-top:50px;
+  padding:5px;
+  border-top:1px solid black;
+  border-left:1px solid black;
+  border-right:1px solid black;
+  border-bottom:brown;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.scrabbleBoard::-webkit-input-placeholder {
+    color: white;
+}
+.scrabbleBoard:-moz-placeholder {
+    /.scrabbleBoard FF 4-18 .scrabbleBoard/
+    color: white;
+}
+.scrabbleBoard::-moz-placeholder {
+    /.scrabbleBoard FF 19+ .scrabbleBoard/
+    color: white;
+}
+.scrabbleBoard:-ms-input-placeholder {
+    /.scrabbleBoard IE 10+ .scrabbleBoard/
+    color: white;
+}
+
+.scrabbleBase{
+  background-color:saddlebrown;
+  border:1px solid black;
+  width:65%;
+  margin:auto;
+  height:10px;
+  margin-bottom:20px;
+}
+
+.revealScrabble{
+  border:none;
+  background-color:rgb(60,179,113);
+  width:100%;
+  height:40px;
+  color:green;
+  font-size:25px;
+}
+
+.revealScrabble:hover{
+  background-color:rgb(90,179,113);
+  cursor:pointer;
+  color:white;
+}

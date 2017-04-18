@@ -23,15 +23,8 @@ export default class Guess extends React.Component{
     this.checkGuess = this.checkGuess.bind(this);
     this.ShowLessThanArray = ShowLessThanArray.bind(this);
     this.ShowMoreThanArray = ShowMoreThanArray.bind(this);
-    // this.focus = this.focus.bind(this)
-    // this.resetGuessApp = this.resetGuessApp.bind(this)
-    // this.checkGuess = this.checkGuess.bind(this)
   }
 
-  // const createGuessSession = () => {
-  //   const session = new GuessSession()
-  //   resetGuessApp()
-  // }
 
   updateGuessInputVal(e){
     e.preventDefault()
@@ -39,7 +32,6 @@ export default class Guess extends React.Component{
       guess_input_value : e.target.value
     })
     console.log('this.state.guess_input_value: ',this.state.guess_input_value)
-    // update input value in state
   }
 
   checkGuess(e){
