@@ -8,10 +8,45 @@ export default class Scrab_Bag extends React.Component{
     this.state = {
       scrabble_pieces: [],
       user_picked_scrabble_pieces: [],
-      scrabbleCollection: []
+      scrabbleCollection: [],
+      pieceSideUp: 'front',
+      displayRow: 'display-scrabble-row',
+      display_reveal_row: 'hide',
+      revealPieces: 'revealScrabble',
+      returnPieces: 'hide'
     }
 
+    this.revealPieces = this.revealPieces.bind(this);
+    this.returnScrabblePieces = this.returnScrabblePieces.bind(this);
     // this.PopulateScrabblePieces = PopulateScrabblePieces.bind(this);
+  }
+
+  revealPieces(e){
+    e.preventDefault()
+    console.log('revealed!!!')
+    // scrabble-backside-row
+    this.setState({
+      displayRow : 'hide',
+      display_reveal_row : 'display-scrabble-row',
+      revealPieces : 'hide',
+      returnPieces : 'returnScrabble',
+    })
+    console.log('this.state.displayRow: ', this.state.displayRow)
+    console.log('this.state.display_reveal_row: ', this.state.display_reveal_row)
+    console.log('this.state.returnPieces: ', this.state.returnPieces)
+    console.log('this.state.revealPieces: ', this.state.revealPieces)
+  }
+
+  returnScrabblePieces(e){
+    e.preventDefault()
+    console.log('not revealed')
+    // scrabble-backside-row
+    this.setState({
+      displayRow : 'display-scrabble-row',
+      display_reveal_row : 'hide',
+      revealPieces : 'revealScrabble',
+      returnPieces : 'hide'
+    })
   }
 
 
@@ -46,7 +81,10 @@ export default class Scrab_Bag extends React.Component{
       none : { character: '', pieceCount: 2, presentCount: 2}
     }
     let collection = Object.keys(totalScrabblePieces).map( piece => {
-      return new ScrabblePieceElement( totalScrabblePieces[piece].character,totalScrabblePieces[piece].pieceCount,totalScrabblePieces[piece].presentCount )
+      return new ScrabblePieceElement( totalScrabblePieces[piece].character, totalScrabblePieces[piece].pieceCount, totalScrabblePieces[piece].presentCount, totalScrabblePieces[piece].character )
+    })
+    let show_back_collection = Object.keys(totalScrabblePieces).map( piece => {
+      return new ScrabblePiece_Back_Element( totalScrabblePieces[piece].character, totalScrabblePieces[piece].presentCount, totalScrabblePieces[piece].character )
     })
     return(
       <div className="section">
@@ -61,27 +99,31 @@ export default class Scrab_Bag extends React.Component{
         </div>
 
 
-        <div>
+        <div className={this.state.displayRow}>
           {collection}
         </div>
 
-      
+        <div className={this.state.display_reveal_row}>
+          {show_back_collection}
+        </div>
+
+
 
         <input className="scrabbleBoard" placeholder="type the letters you want"/>
         <div className="scrabbleBase"></div>
-        <button className="revealScrabble">reveal</button>
-        <button className="returnScrabble">return</button>
+      <button className={this.state.revealPieces} onClick={this.revealPieces}>reveal all at once</button>
+    <button className={this.state.returnPieces} onClick={this.returnScrabblePieces}>return</button>
 
       </div>
     )}
 }
 
 class ScrabblePieceElement{
-  constructor(char, pCount, presCount){
+  constructor(char, pCount, presCount, key){
 
     return(
-      <div className="scrabblePieceContainer">
-        <div className="flip-container" onTouchStart="this.classList.toggle('hover');">
+      <div className="scrabblePieceContainer" key={key}>
+        <div className="flip-container">
           <div className="flipper">
             <div className="front">
               <span className="name">{char}</span>
@@ -98,60 +140,20 @@ class ScrabblePieceElement{
   }
 }
 
+class ScrabblePiece_Back_Element{
+  constructor(char, presCount, key){
 
-
-// const PopulateScrabblePieces = function(){
-//   // totalScrabblePieces.A.pieceCount => 9
-//   let scrabbleCollection = this.state.scrabbleCollection;
-//   for(let i = 0; i < totalScrabblePieces.length; i++){
-//     let newPiece = new ScrabblePieceElement(totalScrabblePieces.i.character, totalScrabblePieces.i.pieceCount, totalScrabblePieces.i.presentCount);
-//     scrabbleCollection.push( newPiece )
-//     this.setState({
-//       scrabbleCollection : scrabbleCollection
-//     })
-//
-//     let collection = this.totalScrabblePieces.map( peice => {
-//       return new ScrabblePieceElement( peice.character,peice.count,peice.presentCount )
-//     })
-//
-//     return(
-//       <div>
-//         {collection}
-//       </div>
-//     )
-//   }
-//
-//
-// }
-
-
-{/*
-<div className="scrabblePieceContainer">
-<div className="scrabblePiece">A</div>
-<div className="scrabblePiece">B</div>
-<div className="scrabblePiece">C</div>
-<div className="scrabblePiece">D</div>
-<div className="scrabblePiece">E</div>
-<div className="scrabblePiece">G</div>
-<div className="scrabblePiece">H</div>
-<div className="scrabblePiece">I</div>
-<div className="scrabblePiece">J</div>
-<div className="scrabblePiece">K</div>
-<div className="scrabblePiece">L</div>
-<div className="scrabblePiece">M</div>
-<div className="scrabblePiece">N</div>
-<div className="scrabblePiece">O</div>
-<div className="scrabblePiece">P</div>
-<div className="scrabblePiece">Q</div>
-<div className="scrabblePiece">R</div>
-<div className="scrabblePiece">S</div>
-<div className="scrabblePiece">T</div>
-<div className="scrabblePiece">U</div>
-<div className="scrabblePiece">V</div>
-<div className="scrabblePiece">W</div>
-<div className="scrabblePiece">X</div>
-<div className="scrabblePiece">Y</div>
-<div className="scrabblePiece">Z</div>
-<div className="scrabblePiece">_</div>
-</div>
-*/}
+    return(
+      <div className="scrabblePieceContainer" key={key}>
+        <div className="flip-container">
+          <div className="">
+            <div className="front front_as_rear">
+              <div className="back-original">{char}</div>
+              <div className="back-count">{presCount}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}

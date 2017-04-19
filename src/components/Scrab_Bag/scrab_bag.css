@@ -175,7 +175,6 @@
 	transform: rotate(-20deg);
 }
 
-
 .back-original{
   font-size:15px;
   position:absolute;
@@ -196,7 +195,7 @@
 	top: 3px;
 	left: 10px;
 	right: 4px;
-	font-size: 35px;
+	font-size: 30px;
 }
 
 .back p {
@@ -210,4 +209,33 @@
   line-height: 2em;
 }
 
+.front_as_rear{
+  background-color:white;
+  border-bottom:1px solid saddlebrown;
+}
+
 /* ------------------------------------- */
+.display-scrabble-row {
+  display:block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-shrink: 0;
+  width:60%;
+}
+
+.hide {
+  display:none;
+}
+
+.display {
+  display:block;
+}
+
+.scrabble-Row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-shrink: 0;
+  width:60%;
+}
