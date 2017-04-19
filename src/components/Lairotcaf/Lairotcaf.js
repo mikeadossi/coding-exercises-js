@@ -5,7 +5,7 @@ export default class Lairotcaf extends React.Component{
   render(){
     return(
       <div className="section">
-        <div className="header"></div>
+        <div className="header">Lairotcaf</div>
         <div className="content_container">
         </div>
       </div>

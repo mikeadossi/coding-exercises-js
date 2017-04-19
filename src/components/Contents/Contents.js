@@ -15,7 +15,7 @@ import Lairotcaf from 'components/Lairotcaf/Lairotcaf';
 import String_me_along from 'components/String_me_along/String_me_along';
 import Braille from 'components/Braille/Braille';
 import String_permutations from 'components/String_permutations/String_permutations';
-import Finite_State_Gate from 'components/Finite_State_Gate/Finite_State_Gate';
+import Finite_state_gate from 'components/Finite_state_gate/Finite_state_gate';
 
 export default class Content extends React.Component{
   constructor(props){
@@ -31,12 +31,12 @@ export default class Content extends React.Component{
       who_wants_a_date: { program:<Who_wants_a_date /> },
       play_it_again: { program:<Play_it_again /> },
       parents_B_Gone: { program:<Parents_B_Gone /> },
-      resolving_Symlinks: { program:<Resolving_Symlinks /> },
-      lairotcaf: {program:<Lairotcaf /> },
+      resolving_symlinks: { program:<Resolving_Symlinks /> },
+      lairotcaf: { program:<Lairotcaf /> },
       string_me_along: {program: <String_me_along /> },
       braille: { program: <Braille /> },
       string_permutations: { program: <String_permutations /> },
-      finite_State_Gate: { program: <Finite_State_Gate /> }
+      finite_state_gate: { program: <Finite_state_gate /> }
     }
   }
 
@@ -55,12 +55,12 @@ export default class Content extends React.Component{
             {this.props.pageName == "who_wants_a_date_page" ? this.state.who_wants_a_date.program : null }
             {this.props.pageName == "play_it_again_page" ? this.state.play_it_again.program : null }
             {this.props.pageName == "parents_B_Gone_page" ? this.state.parents_B_Gone.program : null }
-            {this.props.pageName == "resolving_Symlinkas_page" ? this.state.resolving_Symlinkas.program : null }
-            {this.props.pageName == "lairotcaf_page" ? this.state.Lairotcaf.program : null }
+            {this.props.pageName == "resolving_symlinks_page" ? this.state.resolving_symlinks.program : null }
+            {this.props.pageName == "lairotcaf_page" ? this.state.lairotcaf.program : null }
             {this.props.pageName == "string_me_along_page" ? this.state.string_me_along.program : null }
             {this.props.pageName == "braille_page" ? this.state.braille.program : null }
             {this.props.pageName == "string_permutations_page" ? this.state.string_permutations.program : null }
-            {this.props.pageName == "finite_State_page" ? this.state.finite_State.program : null }
+            {this.props.pageName == "finite_state_gate_page" ? this.state.finite_state_gate.program : null }
           </div>
         </div>
     )
