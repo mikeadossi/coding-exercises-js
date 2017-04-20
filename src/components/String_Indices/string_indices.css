@@ -8,3 +8,20 @@
   margin:auto;
   margin-top:20px;
 }
+
+.string_indices_result_div{
+  background-color:skyblue;
+}
+
+.string_indices_array_item{
+  background-color:grey;
+  border:1px solid black;
+  width:30%;
+  display:inline-block;
+}
+
+.string_indices_position{
+  display:inline-block;
+  width:10%;
+  background-color:green;
+}

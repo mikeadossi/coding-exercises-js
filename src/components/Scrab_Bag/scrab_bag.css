@@ -16,7 +16,6 @@
 }*/
 
 .scrabblePieceContainer{
-  width:70%;
   margin:auto;
 }
 
@@ -216,12 +215,12 @@
 
 /* ------------------------------------- */
 .display-scrabble-row {
-  display:block;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   flex-shrink: 0;
   width:60%;
+  flex-wrap: wrap;
+  margin:auto;
 }
 
 .hide {

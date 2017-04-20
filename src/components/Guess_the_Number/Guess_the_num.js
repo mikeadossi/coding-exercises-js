@@ -110,7 +110,7 @@ export default class Guess extends React.Component{
           <div className="guesses_container">
             <div className="guess_too_small" className={this.state.guess_too_small_styling}>
               <div>Too Small</div>
-              {this.ShowLessThanArray()}
+            {this.ShowLessThanArray()}
             </div>
             <div className="guess_too_large" className={this.state.guess_too_large_styling}>
               <div>Too Large</div>
