@@ -17,9 +17,10 @@
 
 .disemvowel_results_div{
   background-color:indianred;
+  padding:5px;
 }
 
 .returned_disemvoweled_string{
   background-color:grey;
-  border:1px solid black;
+  border-top:1px solid black;
 }
