@@ -36,6 +36,8 @@ export default class Guess extends React.Component{
 
   checkGuess(e){
     e.preventDefault();
+    // this.refs.guess_user_input.value = '';
+    console.log('this.refs.guess_user_input.value: ',this.refs.guess_user_input.value)
     let inputVal = this.state.guess_input_value;
     if(inputVal.replace(/\s/g,"") == "" || inputVal.length === 0){
       console.log('guess_input_value === null');
@@ -66,7 +68,7 @@ export default class Guess extends React.Component{
         num_of_guesses : currentNumOfGuesses,
         guess_too_small_styling: 'guess_too_small'
       })
-      ShowLessThanArray();
+      this.ShowLessThanArray();
     } else if(inputVal > randomNum){
       guessesTooLarge.push(inputVal);
       console.log('too large');
@@ -76,7 +78,7 @@ export default class Guess extends React.Component{
         num_of_guesses : currentNumOfGuesses,
         guess_too_large_styling: 'guess_too_large'
       })
-      ShowMoreThanArray();
+      this.ShowMoreThanArray();
     }
   }
 
@@ -102,7 +104,7 @@ export default class Guess extends React.Component{
           <p>There's a number sitting inside the box, type the number you think it is.</p>
           <div>
             <form>
-            <input className="guessTheNumber_input appInputStyling" disabled={this.state.disableInputElement} onChange={this.updateGuessInputVal} value={this.state.guess_input_value} placeholder="#"></input>
+            <input ref="guess_user_input" className="guessTheNumber_input appInputStyling" disabled={this.state.disableInputElement} onChange={this.updateGuessInputVal} value={this.state.guess_input_value} placeholder="#"></input>
           <button onClick={this.checkGuess} className={this.state.guess_the_number_btn_styling}>send</button>
             </form>
           </div>
@@ -128,10 +130,11 @@ export default class Guess extends React.Component{
 }
 
 const ShowLessThanArray = function(){
-  let key = this.state.guesses_too_small.length-1
+  // let key = this.state.guesses_too_small.length-1
   let lessThanArray = this.state.guesses_too_small
-  let displayLessThanArray = lessThanArray.map((key) => (<div className="guess_less_than_div_element" key={key}>{key}</div>))
-  console.log('displayArray: ',this.state.guesses_too_small[key])
+  console.log('this.state.guesses_too_small => ',this.state.guesses_too_small)
+  let displayLessThanArray = lessThanArray.map((element,key) => (<div className="guess_less_than_div_element" key={key}>{element}</div>))
+  // console.log('displayArray: ',this.state.guesses_too_small[key])
   return(
     displayLessThanArray
   )
@@ -140,6 +143,7 @@ const ShowLessThanArray = function(){
 const ShowMoreThanArray = function(){
   let key = this.state.guesses_too_large.length-1
   let moreThanArray = this.state.guesses_too_large
+  console.log('this.state.guesses_too_large => ',this.state.guesses_too_large)
   moreThanArray = moreThanArray.sort()
   let displayMoreThanArray = moreThanArray.map((key) => (<div className="guess_more_than_div_element" key={key}>{key}</div>))
   return(
