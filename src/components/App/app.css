@@ -41,3 +41,11 @@
 .appInputStyling{
   height:20px;
 }
+
+.app_code{
+  background-color:white;
+  border-radius:5px;
+  padding:10px;
+  list-style:none;
+  text-align:left;
+}
