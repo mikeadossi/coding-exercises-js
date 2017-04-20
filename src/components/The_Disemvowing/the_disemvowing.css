@@ -13,6 +13,7 @@
   border:2px solid black;
   margin:auto;
   margin-top:20px;
+  overflow:scroll;
 }
 
 .disemvowel_results_div{
