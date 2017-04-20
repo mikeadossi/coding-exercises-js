@@ -7,6 +7,7 @@
   border:2px solid black;
   margin:auto;
   margin-top:20px;
+  overflow:scroll;
 }
 
 .string_indices_result_div{
@@ -15,13 +16,14 @@
 
 .string_indices_array_item{
   background-color:grey;
-  border:1px solid black;
-  width:30%;
+  border-top:1px solid black;
+  width:80.3%;
   display:inline-block;
 }
 
 .string_indices_position{
   display:inline-block;
-  width:10%;
-  background-color:green;
+  width:19.7%;
+  background-color:lightblue;
+  border-top: 1px solid black;
 }
