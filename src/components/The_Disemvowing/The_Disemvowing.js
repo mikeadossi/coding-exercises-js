@@ -29,6 +29,7 @@ export default class The_Disemvowing extends React.Component{
     console.log('click!')
     let targetValue = this.state.disemvowing_input_value
     targetValue = targetValue.replace(/\s/g, "")
+    targetValue = targetValue.replace(/[aeiou]/ig,'')
     let disemvowing_array = this.state.disemvowing_array
     disemvowing_array.push(targetValue)
     this.setState({
@@ -53,7 +54,7 @@ export default class The_Disemvowing extends React.Component{
       <input className="appInputStyling" placeholder="string w/ spaces" onChange={this.disemvowelAndSave} ref="disemvowel_input"/>
     <button className="appButtonSyling" onClick={this.returnDisemvoweledString}>disemvowel</button>
       <div className="disemvowel_results">
-        <div className="disemvowel_results_div">str.replace(/\s/g, "")</div>
+        <div className="disemvowel_results_div">str.replace(/\s/g, "") + str.replace(/[aeiou]/ig,'')</div>
       {this.DisemvoweledStrings()}
       </div>
       </div>
