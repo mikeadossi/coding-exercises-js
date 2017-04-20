@@ -17,6 +17,7 @@
 
 .scrabblePieceContainer{
   margin:auto;
+  padding:1.5px;
 }
 
 .scrabbleBoard{
@@ -218,9 +219,10 @@
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
-  width:60%;
   flex-wrap: wrap;
   margin:auto;
+  min-width:600px;
+  max-width:600px;
 }
 
 .hide {
