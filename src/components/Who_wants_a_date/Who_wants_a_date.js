@@ -11,6 +11,7 @@ export default class Who_wants_a_date extends React.Component{
 
     this.storeDate = this.storeDate.bind(this);
     this.convertDate = this.convertDate.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   storeDate(e){
@@ -102,6 +103,12 @@ export default class Who_wants_a_date extends React.Component{
 
   }
 
+  handleClick(e){
+    if(e.key == 'Enter'){
+      this.convertDate(e)
+    }
+  }
+
   render(){
     return(
       <div className="section">
@@ -120,7 +127,7 @@ export default class Who_wants_a_date extends React.Component{
           <p>Given the 6 formats for stating dates above, write a program which could convert each date in a imaginary database to all look like yyyy-mm-dd. </p>
         </div>
         <h2>Enter a Date</h2>
-        <input ref="user_date_entry" className="appInputStyling" onChange={this.storeDate}></input>
+      <input onKeyPress={this.handleClick} ref="user_date_entry" className="appInputStyling" onChange={this.storeDate}></input>
         <button className="appButtonSyling" onClick={this.convertDate}>Submit</button>
       <div className="proper_date_format_div">{this.state.date_input_val}  :  {this.state.convertedDate}</div>
       </div>
