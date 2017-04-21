@@ -3,19 +3,22 @@
   height:100vh;
 }
 
-.home_header{
-  font-size:3.5em;
-  max-width:60%;
-  max-width:50%;
+.home_title{
+  font-size:52px;
+  margin-bottom:-20px;
+}
+
+.home_title_top{
+  font-size:190px;
+  margin-bottom:-50px
 }
 
 .home_centered{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  height:100%;
+  padding:60px;
 }
 
 .home_content_container{
-  max-width:50%;
+  width:70%;
+  margin:auto;
+  margin-top:35px;
 }
