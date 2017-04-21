@@ -7,7 +7,9 @@ export default class Lairotcaf extends React.Component{
     super(props)
     this.state = {
       lairotcaf_input : '',
-      lairotcaf_result : ''
+      lairotcaf_result : '',
+      result_background_color : 'lairotcaf_result_grey',
+      lairotcaf_input_stored : ''
     }
 
     this.handleKeyPress = this.handleKeyPress.bind(this)
@@ -31,9 +33,19 @@ export default class Lairotcaf extends React.Component{
 
   getLairotcaf(e){
     e.preventDefault();
+
     let num = this.state.lairotcaf_input
-    console.log('num: ',num)
     this.refs.lairotcaf_input.value = '';
+
+    if (num === '' || !/\S/.test(num)){
+      this.setState({
+        result_background_color : 'lairotcaf_result_grey',
+        lairotcaf_input : '',
+        lairotcaf_result : '',
+        lairotcaf_input_stored : ''
+      })
+      return
+    }
 
     let primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199]
     let greatestPrimeFactor;
@@ -51,26 +63,36 @@ export default class Lairotcaf extends React.Component{
     	if(num % y === 0){
       	factorial.push(y)
       } else { return 'not a perfect factorial'
-        console.log(num+' is not a factorial number')
         y = -1
       }
     }
-
+    let largestCalc = factorial.reduce((a,b) => {return a*b})
     for(let x = greatestPrimeFactor+1; x < primes[primeArrayPosition+1]; x++){
     	if(num % (x * largestCalc) === 0 ){
       	factorial.unshift(x)
-      } else { //console.log('C')
+      } else {
       	x = primes[primeArrayPosition+1]+1
       }
     }
-    let largestCalc = factorial.reduce((a,b) => {return a*b})
-    console.log('largestCalc: ',largestCalc)
-    if (largestCalc != num){ return 'not a perfect factorial'}
+    largestCalc = factorial.reduce((a,b) => {return a*b})
+    if (largestCalc != num){
+      let lairotcaf_input = this.state.lairotcaf_input
+      this.setState({
+        lairotcaf_result : 'X',
+        result_background_color : 'lairotcaf_result_red',
+        lairotcaf_input_stored : lairotcaf_input,
+        lairotcaf_input : ''
+      })
+      return
+    }
 
     factorial = factorial[0]+'!'
-    console.log(factorial)
+    let lairotcaf_input = this.state.lairotcaf_input
     this.setState({
-      lairotcaf_result : factorial
+      lairotcaf_result : factorial,
+      result_background_color : 'lairotcaf_result_limegreen',
+      lairotcaf_input_stored : lairotcaf_input,
+      lairotcaf_input : ''
     })
 
   }
@@ -90,7 +112,8 @@ export default class Lairotcaf extends React.Component{
         <h2>Give it a try</h2>
       <input ref="lairotcaf_input" onKeyPress={this.handleKeyPress} className="appInputStyling" placeholder="120" onChange={this.saveLairotcafInput}></input>
       <button className="appButtonSyling" onClick={this.getLairotcaf}>factor</button>
-      <div className="lairotcaf_result_div">{this.state.lairotcaf_result}</div>
+      <div className="lairotcaf_result_div" className={this.state.result_background_color}>{this.state.lairotcaf_result}</div>
+    <div className="display_lairotcaf_entry">{this.state.lairotcaf_input_stored}</div>
       </div>
     )}
 }
