@@ -22,7 +22,7 @@ export default class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      currentPage: "scrab_bag_page",
+      currentPage: "lairotcaf_page",
       guess_random_num: 0,
       guess_input_value: 0,
       guesses_too_small: [],
