@@ -17,7 +17,37 @@ export default class String_permutations extends React.Component{
     e.preventDefault()
     console.log('click!')
     this.refs.permutate_input.value = ''
-    // this is sparta
+    let str = this.state.permutate_input
+    let strArrayed = str.split('')
+    let accountingArr = [];
+
+    for(let i = 0; i < strArrayed.length; i++){
+      accountingArr.push(i)
+    }
+
+    function shuffle(array) {
+      let currentIndex = array.length, temporaryValue, randomIndex;
+
+      while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
+    }
+
+    // let possiblePermutations = get factorial of str.arrayed.length
+
+    // make sure to account for any duplication when the same characters show up more than once, for example [1,2,3] might have 6 permutations, and [1,1,2] will have 6 possible permutations as well but there will be duplicates, remove duplicates. Should be straighforward.
+    for(let i = 0; i < possiblePermutations; i++){
+      if()
+    }
+
+
   }
 
   savePermutationInput(e){
