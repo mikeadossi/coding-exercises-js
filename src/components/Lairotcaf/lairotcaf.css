@@ -1,5 +1,4 @@
-.lairotcaf_result_div{
-  background-color:limegreen;
+/*.lairotcaf_result_div{
   width: 100px;
   height: 100px;
   -moz-border-radius: 50px;
@@ -11,4 +10,54 @@
   color:white;
   text-shadow: 1px 1px 1px #000;
   font-size:30px;
+}*/
+
+.lairotcaf_result_grey{
+  background-color: gainsboro;
+  width: 100px;
+  height: 100px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  margin:auto;
+  margin-top:20px;
+  line-height:100px;
+  color:white;
+  text-shadow: 1px 1px 1px #000;
+  font-size:30px;
+}
+
+.lairotcaf_result_red{
+  background-color: indianred;
+  width: 100px;
+  height: 100px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  margin:auto;
+  margin-top:20px;
+  line-height:100px;
+  color:white;
+  text-shadow: 1px 1px 1px #000;
+  font-size:30px;
+}
+
+.lairotcaf_result_limegreen{
+  background-color: limegreen;
+  width: 100px;
+  height: 100px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  margin:auto;
+  margin-top:20px;
+  line-height:100px;
+  color:white;
+  text-shadow: 1px 1px 1px #000;
+  font-size:30px;
+}
+
+.display_lairotcaf_entry{
+  margin-top:10px;
+  color:grey;
 }
