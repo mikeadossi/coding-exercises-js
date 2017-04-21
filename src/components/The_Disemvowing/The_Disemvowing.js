@@ -13,6 +13,7 @@ export default class The_Disemvowing extends React.Component{
     this.returnDisemvoweledString = this.returnDisemvoweledString.bind(this)
     this.disemvowelAndSave = this.disemvowelAndSave.bind(this)
     this.DisemvoweledStrings = DisemvoweledStrings.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
   }
 
   disemvowelAndSave(e){
@@ -40,6 +41,12 @@ export default class The_Disemvowing extends React.Component{
     this.refs.disemvowel_input.value = '';
   }
 
+  handleKeyPress(e){
+   if(e.key == 'Enter'){
+     this.returnDisemvoweledString()
+   }
+  }
+
 
   render(){
     return(
@@ -51,7 +58,7 @@ export default class The_Disemvowing extends React.Component{
         <p> Write a program that takes a string and returns a new string with all the spaces removed.</p>
         </div>
         <h2>Enter a String</h2>
-      <input className="appInputStyling" placeholder="string w/ spaces" onChange={this.disemvowelAndSave} ref="disemvowel_input"/>
+      <input onKeyPress={this.handleKeyPress} className="appInputStyling" placeholder="string w/ spaces" onChange={this.disemvowelAndSave} ref="disemvowel_input"/>
     <button className="appButtonSyling" onClick={this.returnDisemvoweledString}>disemvowel</button>
       <div className="disemvowel_results">
         <div className="disemvowel_results_div">str.replace(/\s/g, "") + str.replace(/[aeiou]/ig,'')</div>
