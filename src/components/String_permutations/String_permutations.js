@@ -6,56 +6,82 @@ export default class String_permutations extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      permutate_input : ''
+      permutate_input : '',
+      permutation_result : []
     }
 
-    this.getPermutations = this.getPermutations.bind(this)
-    this.savePermutationInput = this.savePermutationInput.bind(this)
+    this.getPermutations = this.getPermutations.bind(this); this.savePermutationInput = this.savePermutationInput.bind(this);
+    this.renderPermutations = this.renderPermutations.bind(this);
   }
 
-  getPermutations(e){
-    e.preventDefault()
-    console.log('click!')
+  getPermutations(){
     this.refs.permutate_input.value = ''
+
     let str = this.state.permutate_input
-    let strArrayed = str.split('')
-    let accountingArr = [];
 
-    for(let i = 0; i < strArrayed.length; i++){
-      accountingArr.push(i)
-    }
+    // js implementation of Heaps algorithm sourced from https://gist.github.com/dsernst/2570de0dc7d44a8cbbd0
+    let swap = function(array, pos1, pos2){
+      let temp = array[pos1];
+      array[pos1] = array[pos2];
+      array[pos2] = temp;
+    };
 
-    function shuffle(array) {
-      let currentIndex = array.length, temporaryValue, randomIndex;
-
-      while (0 !== currentIndex) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
+    const heapsPermute = function(array, output, n){
+      n = n || array.length;
+      if (n === 1) {
+        output(array);
+      } else {
+        for (let i = 1; i <= n; i += 1) {
+          heapsPermute(array, output, n - 1);
+          if (n % 2) {
+            var j = 1;
+          } else {
+            var j = i;
+          }
+          swap(array, j - 1, n - 1);
+        }
       }
+    };
 
-      return array;
+    let resultArr = [];
+    let print = function(input){
+      input = JSON.stringify(input)
+      resultArr.push(input)
+      return input
     }
 
-    // let possiblePermutations = get factorial of str.arrayed.length
+    let result = heapsPermute(str, print)
 
-    // make sure to account for any duplication when the same characters show up more than once, for example [1,2,3] might have 6 permutations, and [1,1,2] will have 6 possible permutations as well but there will be duplicates, remove duplicates. Should be straighforward.
-    for(let i = 0; i < possiblePermutations; i++){
-      if()
-    }
+    this.setState({
+      permutation_result : resultArr
+    })
 
+  }
 
+  renderPermutations(){
+    let resultArr = this.state.permutation_result
+    let displayElements = resultArr.map((element, index) => {
+      return <ShowPermutations keyz={index} value={element}/>
+    })
+
+    return displayElements
   }
 
   savePermutationInput(e){
-    let targetValue = e.target.value
+    let str= e.target.value
+
+    if(typeof str === 'string'){
+      str = str.replace(/[[\]]/g,"")
+      if(str.indexOf(',') > -1){
+        str = str.split(',')
+      } else if (str.indexOf(' ' > -1)){
+        str = str.split(' ')
+      }
+    }
+
     this.setState({
-      permutate_input : targetValue
+      permutate_input : str
     })
-    console.log('this.state.permutate_input: ',this.state.permutate_input)
   }
 
   render(){
@@ -64,13 +90,29 @@ export default class String_permutations extends React.Component{
         <div className="header">String permutations</div>
         <div className="content_container">
           <h2 className="description">Description</h2>
-          <p className="instructions">Write a program that prints all of the permutations of the unique characters of an input string.</p>
+          <p className="instructions">Write a program that prints all of the permutations of an input string.</p>
         </div>
         <div>
           <h2>Let's permutate</h2>
         <input ref="permutate_input" onChange={this.savePermutationInput} className="appInputStyling" placeholder="entire a single string"/>
-          <button className="appButtonSyling" onClick={this.getPermutations}>permutate</button>
+      <button className="appButtonSyling" onClick={this.getPermutations}>permutate</button>
         </div>
+        <div className="string_permutations_result_div">{this.renderPermutations()}</div>
       </div>
     )}
+}
+
+class ShowPermutations extends React.Component{
+  constructor(props){
+    super(props)
+  }
+  render(){
+    return(
+      <div key={this.props.keyz}>
+        <div className="permutations_values">
+        <div className="permutations_array_item">{this.props.value}</div>
+        </div>
+      </div>
+    )
+  }
 }
