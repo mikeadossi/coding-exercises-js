@@ -72,6 +72,7 @@ export default class String_permutations extends React.Component{
 
     if(typeof str === 'string'){
       str = str.replace(/[[\]]/g,"")
+      str = str.replace(/['"]+/g, "")
       if(str.indexOf(',') > -1){
         str = str.split(',')
       } else if (str.indexOf(' ' > -1)){
@@ -97,7 +98,10 @@ export default class String_permutations extends React.Component{
         <input ref="permutate_input" onChange={this.savePermutationInput} className="appInputStyling" placeholder="entire a single string"/>
       <button className="appButtonSyling" onClick={this.getPermutations}>permutate</button>
         </div>
-        <div className="string_permutations_result_div">{this.renderPermutations()}</div>
+        <div className="string_permutations_result_div">
+          <div className="permutations_result_header">Permutations</div>
+          {this.renderPermutations()}
+        </div>
       </div>
     )}
 }
