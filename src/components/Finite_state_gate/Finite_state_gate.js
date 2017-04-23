@@ -6,26 +6,54 @@ export default class Finite_state_gate extends React.Component{
     super(props)
     this.state = {
       finite_state_meter : '',
-      finite_state_message : 'Gate: OPEN',
-      finite_state_status : 50
+      finite_state_status : 'Gate: OPEN',
+      finite_state_fill : 0
     }
 
     this.finiteStateAction = this.finiteStateAction.bind(this);
   }
 
   finiteStateAction(){
-    let status = this.state.finite_state_status
-    let meter =
-    setInterval( function(){
-      //do something
-    }, 500)
-    this.setState({
-      finite_state_status : status
-    })
+    console.log('click!')
+    let fill = this.state.finite_state_fill;
+    let status = this.state.finite_state_status;
+    let newStatus;
+
+
+    if(status = 'Gate: OPEN'){
+      this.setState({
+        finite_state_status : 'CLOSING'
+      })
+      let that = this;
+      let run;
+
+      // setTImeout runs once and is nonblocking when used in a for loop, so rather than writing a setTimeout inside a for loop write your loop inside the setTimeout call.
+      run = function(){
+        setTimeout(function(){
+          fill += 10;
+          that.setState({
+            finite_state_fill : fill
+          });
+          if(fill < 100){
+            run();
+          }
+          console.log('set')
+        }, 1000)
+      }
+
+      run();
+      console.log('fill: ',fill)
+
+      this.setState({
+        finite_state_status : 'Gate: CLOSED'
+      })
+      return
+    }
+
   }
 
   render(){
-    let percentage = this.state.finite_state_status + '%';
+    let percentage = this.state.finite_state_fill + '%';
     return(
       <div className="section">
         <div className="header">Finite State Gate</div>
@@ -39,7 +67,7 @@ export default class Finite_state_gate extends React.Component{
           <div className="finite_state_meter">
             <div className="finite_state_meter_progress" style={{width:percentage}}></div>
           </div>
-        <div className="finite_state_message">{this.state.finite_state_message}</div>
+        <div className="finite_state_message">{this.state.finite_state_status}</div>
       <button className="finiteGate_Btn" onClick={this.finiteStateAction}>Go</button>
         </div>
       </div>
