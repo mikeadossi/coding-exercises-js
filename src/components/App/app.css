@@ -49,3 +49,12 @@
   list-style:none;
   text-align:left;
 }
+
+@media (min-width: 0px) and (max-width:450px) {
+  #app_container{
+    background-color:steelblue;
+  }
+  #app_contents{
+    margin-top:89px;
+  }
+}
