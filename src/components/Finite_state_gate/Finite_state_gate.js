@@ -7,7 +7,8 @@ export default class Finite_state_gate extends React.Component{
     this.state = {
       finite_state_meter : '',
       finite_state_status : 'Gate: OPEN',
-      finite_state_fill : 0
+      finite_state_fill : 0,
+      stop_progress : true
     }
 
     this.finiteStateAction = this.finiteStateAction.bind(this);
@@ -19,6 +20,12 @@ export default class Finite_state_gate extends React.Component{
     let status = this.state.finite_state_status;
     let newStatus;
 
+    // allow user to toggle the stop+progress state to pause functions as needed.
+    this.setState({
+      stop_progress: !this.state.stop_progress
+    })
+    let stopProgress = this.state.stop_progress
+    console.log('stopProgress: ',stopProgress)
 
     if(status === 'Gate: OPEN'){
       this.setState({
@@ -34,6 +41,12 @@ export default class Finite_state_gate extends React.Component{
           that.setState({
             finite_state_fill : fill
           });
+
+          //listen for state change
+          if(that.state.stop_progress === true){
+            return
+          }
+
           if(fill < 100){
             run();
           }
@@ -52,59 +65,97 @@ export default class Finite_state_gate extends React.Component{
       return
     }
 
-    // if(status = 'CLOSING'){
-    //   this.setState({
-    //     finite_state_status : 'STOPPED_WHILE_CLOSING'
-    //   })
-    //   console.log('CLICK!!!!!!!!!!!!!')
-    //   return
-    // }
-    //
-    // if(status = 'STOPPED_WHILE_CLOSING'){
-    //   this.setState({
-    //     finite_state_status : 'OPENING'
-    //   })
-    //   let that = this;
-    //   setInterval( function(){
-    //     for(let i = fill; i > 0; i-10){
-    //       fill = i;
-    //       that.setState({
-    //         finite_state_fill : fill
-    //       });
-    //     }
-    //   }, 500)
-    //   this.setState({
-    //     finite_state_status : 'Gate: OPEN'
-    //   })
-    //   return
-    // }
-    //
-    // if(status = 'OPENING'){
-    //   this.setState({
-    //     finite_state_status : 'STOPPED_WHILE_OPENING'
-    //   })
-    //   return
-    // }
-    //
-    // if(status = 'STOPPED_WHILE_OPENING'){
-    //   this.setState({
-    //     finite_state_status : 'CLOSING'
-    //   })
-    //   let that = this;
-    //   setInterval( function(){
-    //     for(let i = fill; i < 100; i+10){
-    //       fill = i;
-    //       that.setState({
-    //         finite_state_fill : fill
-    //       });
-    //     }
-    //   }, 500)
-    //   this.setState({
-    //     finite_state_status : 'Gate: CLOSED'
-    //   })
-    //   return
-    // }
-    //
+    if(status === 'CLOSING'){
+      this.setState({
+        finite_state_status : 'STOPPED_WHILE_CLOSING'
+      })
+      return
+    }
+
+    if(status === 'STOPPED_WHILE_CLOSING'){
+      this.setState({
+        finite_state_status : 'OPENING'
+      })
+      let that = this;
+
+      let run = function(){
+
+        setTimeout(function(){
+          fill -= 1;
+          that.setState({
+            finite_state_fill : fill
+          });
+
+          //listen for state change
+          if(that.state.stop_progress === true){
+            return
+          }
+
+          if(fill > 0){
+            run();
+          }
+          console.log('set')
+        }, 70)
+
+        if(fill < 2){
+          that.setState({
+            finite_state_status : 'Gate: OPEN',
+            stop_progress : true
+          })
+        }
+
+      }
+
+      run();
+      return
+    }
+
+    if(status === 'OPENING'){
+      this.setState({
+        finite_state_status : 'STOPPED_WHILE_OPENING'
+      })
+      console.log('STOPPED WHILE OPENING!!!')
+      return
+    }
+
+    if(status === 'STOPPED_WHILE_OPENING'){
+      this.setState({
+        finite_state_status : 'CLOSING'
+      })
+      let that = this;
+
+      // setTImeout runs once and is nonblocking when used in a for loop, so rather than writing a setTimeout inside a for loop write your loop inside the setTimeout call.
+      let run = function(){
+
+        setTimeout(function(){
+          fill += 1;
+          that.setState({
+            finite_state_fill : fill
+          });
+
+          //listen for state change
+          if(that.state.stop_progress === true){
+            return
+          }
+
+          if(fill < 100){
+            run();
+          }
+          console.log('set')
+        }, 70)
+
+        if(fill > 98){
+          that.setState({
+            finite_state_status : 'Gate: CLOSED'
+          })
+        }
+
+      }
+
+      run();
+      return
+    }
+
 
     if(status === 'Gate: CLOSED'){
       this.setState({
@@ -119,6 +170,12 @@ export default class Finite_state_gate extends React.Component{
           that.setState({
             finite_state_fill : fill
           });
+
+          //listen for state change
+          if(stopProgress === 'true'){
+            return
+          }
+
           if(fill > 0){
             run();
           }
@@ -127,7 +184,8 @@ export default class Finite_state_gate extends React.Component{
         console.log('reverse fill => ',fill)
         if(fill < 2){
           that.setState({
-            finite_state_status : 'Gate: OPEN'
+            finite_state_status : 'Gate: OPEN',
+            stop_progress : true
           })
         }
 
