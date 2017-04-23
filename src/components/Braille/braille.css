@@ -1,0 +1,19 @@
+.english_to_braille_result_header{
+  background-color:silver;
+  padding:3px;
+}
+
+.engligh_to_brail_braille_div{
+  background-color:white;
+  overflow:scroll;
+  max-height: 200px;
+  min-height:200px;
+  width:60%;
+  margin:auto;
+  margin-top:20px;
+  border:2px solid black;
+}
+
+.engligh_to_brail_braille_div{
+  border:2px solid black;
+}
