@@ -60,6 +60,12 @@ a{
   display:none;
 }
 
+.nav_link:focus{
+  outline:none;
+}
+
+
+
 @media (min-width: 0px) and (max-width:454px) {
   #nav_navBar{
     background-color:steelblue;
@@ -72,13 +78,13 @@ a{
     background-color:steelblue;
   }
   .nav_links{
-    background-color:steelblue; 
+    background-color:steelblue;
   }
   .nav_link{
     margin:auto;
     border-bottom:1px solid black;
     width:100%;
-    padding:8px;
+    padding:9px;
   }
   .hamburgerBtn{
     display:block;
@@ -88,6 +94,13 @@ a{
   }
   .header{
     box-shadow: inset 0 3px 5px -3px #000000;
+  }
+  .display_none{
+    display:none;
+  }
+
+  .display_block{
+    display:block;
   }
 }
 
@@ -136,5 +149,12 @@ a{
   }
   #content_page{
     margin-top:40px;
+  }
+  .display_none{
+    display:none;
+  }
+
+  .display_block{
+    display:block;
   }
 }

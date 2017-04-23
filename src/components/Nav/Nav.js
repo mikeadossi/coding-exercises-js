@@ -2,16 +2,59 @@ import React from 'react';
 import './nav.css';
 
 export default class Nav extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      menu_open : 'nav_links display_none',
+      menu_styling : 'nav_link hamburgerBtn fa fa-bars'
+    }
+
+    this.toggleMenu = this.toggleMenu.bind(this);
+    this.navCloseMenu = this.navCloseMenu.bind(this);
+  }
+
+  navCloseMenu(){
+    console.log('window.screen.availWidth: ',window.screen.availWidth)
+    console.log('window.innerWidth: ',window.innerWidth)
+    if(window.innerWidth < 852){
+      this.setState({
+        menu_styling : 'nav_link hamburgerBtn fa fa-bars',
+        menu_open : 'nav_links display_none'
+      })
+    }
+  }
+
+  toggleMenu(){
+    console.log('click!')
+    let menu = this.state.menu_styling;
+
+    if(menu === 'nav_link hamburgerBtn fa fa-bars'){
+      this.setState({
+        menu_styling : 'nav_link hamburgerBtn fa fa-close',
+        menu_open : 'nav_links display_block'
+      })
+      console.log('open')
+      return
+    } else {
+      this.setState({
+        menu_styling : 'nav_link hamburgerBtn fa fa-bars',
+        menu_open : 'nav_links display_none'
+      })
+      console.log('close')
+      return
+    }
+  }
+
   render(){
     return(
       <div id="nav_navBar">
       <div className="nav_top">
         <button className="nav_link nav_header" onClick={()=>this.props.pageChange("home_page")}>Coding Exercises</button>
-      <button className="nav_link hamburgerBtn">X</button>
+        <button className={this.state.menu_styling} onClick={this.toggleMenu}></button>
       </div>
-      <div className="nav_links">
-        <button className="nav_link guess_nav_link" onClick={()=>this.props.pageChange("guess_page")}>guess the number</button>
-        <button className="nav_link" onClick={()=>this.props.pageChange("scrab_bag_page")}>scrab bag</button>
+      <div className="nav_links" className={this.state.menu_open}>
+        <button className="nav_link guess_nav_link" onClick={()=>{this.props.pageChange("guess_page"); this.navCloseMenu()}}>guess the number</button>
+      <button className="nav_link" onClick={()=>this.props.pageChange("scrab_bag_page")}>scrab bag</button>
         <button className="nav_link" onClick={()=>this.props.pageChange("string_indices_page")}>string indices</button>
       <button className="nav_link incomplete" onClick={()=>this.props.pageChange("fibonnacci_bases_page")}>fibonnacci bases</button>
         <button className="nav_link" onClick={()=>this.props.pageChange("the_disemvowing_page")}>the disemvowing</button>
