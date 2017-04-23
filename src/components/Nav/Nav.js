@@ -5,8 +5,12 @@ export default class Nav extends React.Component{
   render(){
     return(
       <div id="nav_navBar">
+      <div className="nav_top">
         <button className="nav_link nav_header" onClick={()=>this.props.pageChange("home_page")}>Coding Exercises</button>
-        <button className="nav_link" onClick={()=>this.props.pageChange("guess_page")}>guess the number</button>
+      <button className="nav_link hamburgerBtn">X</button>
+      </div>
+      <div className="nav_links">
+        <button className="nav_link guess_nav_link" onClick={()=>this.props.pageChange("guess_page")}>guess the number</button>
         <button className="nav_link" onClick={()=>this.props.pageChange("scrab_bag_page")}>scrab bag</button>
         <button className="nav_link" onClick={()=>this.props.pageChange("string_indices_page")}>string indices</button>
       <button className="nav_link incomplete" onClick={()=>this.props.pageChange("fibonnacci_bases_page")}>fibonnacci bases</button>
@@ -22,7 +26,8 @@ export default class Nav extends React.Component{
       <button className="nav_link" onClick={()=>this.props.pageChange("string_permutations_page")}>string permutations</button>
     <button className="nav_link" onClick={()=>this.props.pageChange("finite_state_gate_page")}>finite state gate</button>
         <a href="https://github.com/mikeadossi/coding-exercises-js" target="_blank"><i className="fa fa-github nav_fontAwesome" aria-hidden="true"></i></a>
-      </div>
+    </div>
+    </div>
     )
   }
 }

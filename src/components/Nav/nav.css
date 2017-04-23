@@ -55,3 +55,86 @@ a{
 .incomplete:hover{
   color:rgb(95,130,180);
 }
+
+.hamburgerBtn{
+  display:none;
+}
+
+@media (min-width: 0px) and (max-width:454px) {
+  #nav_navBar{
+    background-color:steelblue;
+    width:100%;
+    position:absolute;
+    margin:auto;
+    height:0;
+  }
+  .nav_top{
+    background-color:steelblue;
+  }
+  .nav_links{
+    background-color:steelblue; 
+  }
+  .nav_link{
+    margin:auto;
+    border-bottom:1px solid black;
+    width:100%;
+    padding:8px;
+  }
+  .hamburgerBtn{
+    display:block;
+  }
+  .guess_nav_link{
+    box-shadow: inset 0 3px 9px -3px #000000;
+  }
+  .header{
+    box-shadow: inset 0 3px 5px -3px #000000;
+  }
+}
+
+@media (min-width: 454px) and (max-width:850px) {
+  #nav_navBar{
+    background-color:orange;
+    width:100%;
+    position:absolute;
+    margin:auto;
+    height:0;
+  }
+  .nav_top{
+    background-color:steelblue;
+    padding-bottom:3px;
+  }
+  .nav_links{
+    background-color:steelblue;
+    display:none;
+    box-shadow: inset 0 3px 5px -3px #000000;
+  }
+  .nav_link{
+    display:inline-block;
+    width:33.33%;
+    font-size:15px;
+    border-left:1px solid black;
+    border-bottom:1px solid black;
+  }
+  .incomplete{
+    color:white;
+  }
+  .nav_header{
+    margin:auto;
+    font-size:25px;
+    width:90%;
+    border-bottom:none;
+    padding-left:100px;
+  }
+  .nav_fontAwesome{
+    display:none;
+  }
+  .hamburgerBtn{
+    width:10%;
+    border:none;
+    position:absolute;
+    padding-top:10px;
+  }
+  #content_page{
+    margin-top:40px;
+  }
+}
