@@ -1,0 +1,32 @@
+.finiteGate_Btn{
+  background-color: gainsboro;
+  font-size:15px;
+  color:grey;
+  height:70px;
+  width:70px;
+  border:none;
+  border-radius:50%;
+  border: 2px solid grey;
+}
+
+.finiteGate_Btn:hover{
+  cursor:pointer;
+  color: limegreen;
+  border: 2px solid limegreen;
+}
+
+.finite_state_meter{
+  height:10px;
+  border:2px solid black;
+  width:40%;
+  margin:auto;
+}
+.finite_state_message{
+  padding:20px;
+}
+
+.finite_state_meter_progress{
+  background-color:indianred;
+  width:100%;
+  height:10px
+}
