@@ -20,17 +20,17 @@ export default class Finite_state_gate extends React.Component{
     let newStatus;
 
 
-    if(status = 'Gate: OPEN'){
+    if(status === 'Gate: OPEN'){
       this.setState({
         finite_state_status : 'CLOSING'
       })
       let that = this;
-      let run;
 
       // setTImeout runs once and is nonblocking when used in a for loop, so rather than writing a setTimeout inside a for loop write your loop inside the setTimeout call.
-      run = function(){
+      let run = function(){
+
         setTimeout(function(){
-          fill += 10;
+          fill += 1;
           that.setState({
             finite_state_fill : fill
           });
@@ -38,18 +38,108 @@ export default class Finite_state_gate extends React.Component{
             run();
           }
           console.log('set')
-        }, 1000)
+        }, 70)
+
+        if(fill > 98){
+          that.setState({
+            finite_state_status : 'Gate: CLOSED'
+          })
+        }
+
       }
 
       run();
-      console.log('fill: ',fill)
-
-      this.setState({
-        finite_state_status : 'Gate: CLOSED'
-      })
       return
     }
 
+    // if(status = 'CLOSING'){
+    //   this.setState({
+    //     finite_state_status : 'STOPPED_WHILE_CLOSING'
+    //   })
+    //   console.log('CLICK!!!!!!!!!!!!!')
+    //   return
+    // }
+    //
+    // if(status = 'STOPPED_WHILE_CLOSING'){
+    //   this.setState({
+    //     finite_state_status : 'OPENING'
+    //   })
+    //   let that = this;
+    //   setInterval( function(){
+    //     for(let i = fill; i > 0; i-10){
+    //       fill = i;
+    //       that.setState({
+    //         finite_state_fill : fill
+    //       });
+    //     }
+    //   }, 500)
+    //   this.setState({
+    //     finite_state_status : 'Gate: OPEN'
+    //   })
+    //   return
+    // }
+    //
+    // if(status = 'OPENING'){
+    //   this.setState({
+    //     finite_state_status : 'STOPPED_WHILE_OPENING'
+    //   })
+    //   return
+    // }
+    //
+    // if(status = 'STOPPED_WHILE_OPENING'){
+    //   this.setState({
+    //     finite_state_status : 'CLOSING'
+    //   })
+    //   let that = this;
+    //   setInterval( function(){
+    //     for(let i = fill; i < 100; i+10){
+    //       fill = i;
+    //       that.setState({
+    //         finite_state_fill : fill
+    //       });
+    //     }
+    //   }, 500)
+    //   this.setState({
+    //     finite_state_status : 'Gate: CLOSED'
+    //   })
+    //   return
+    // }
+    //
+
+    if(status === 'Gate: CLOSED'){
+      this.setState({
+        finite_state_status : 'OPENING'
+      })
+      console.log('REVERSE!!!')
+      let that = this;
+      let run = function(){
+
+        setTimeout(function(){
+          fill -= 1;
+          that.setState({
+            finite_state_fill : fill
+          });
+          if(fill > 0){
+            run();
+          }
+          console.log('set')
+        }, 70)
+        console.log('reverse fill => ',fill)
+        if(fill < 2){
+          that.setState({
+            finite_state_status : 'Gate: OPEN'
+          })
+        }
+
+      }
+
+      run();
+      return
+    }
+
+    // this.setState({
+    //   finite_state_fill : fill
+    // })
   }
 
   render(){
