@@ -12,6 +12,7 @@ export default class String_permutations extends React.Component{
 
     this.getPermutations = this.getPermutations.bind(this); this.savePermutationInput = this.savePermutationInput.bind(this);
     this.renderPermutations = this.renderPermutations.bind(this);
+    this.handleClick = this.handleClick.bind(this)
   }
 
   getPermutations(){
@@ -85,6 +86,12 @@ export default class String_permutations extends React.Component{
     })
   }
 
+  handleClick(e){
+    if(e.key === 'Enter'){
+      this.getPermutations()
+    }
+  }
+
   render(){
     return(
       <div className="section">
@@ -95,7 +102,7 @@ export default class String_permutations extends React.Component{
         </div>
         <div>
           <h2>Let's permutate</h2>
-        <input ref="permutate_input" onChange={this.savePermutationInput} className="appInputStyling" placeholder="entire a single string"/>
+        <input onKeyPress={this.handleClick} ref="permutate_input" onChange={this.savePermutationInput} className="appInputStyling" placeholder="entire a single string"/>
       <button className="appButtonSyling" onClick={this.getPermutations}>permutate</button>
         </div>
         <div className="string_permutations_result_div">
