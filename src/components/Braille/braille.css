@@ -1,19 +1,33 @@
 .english_to_braille_result_header{
   background-color:silver;
-  padding:3px;
+  width:60%;
+  margin:auto;
+  margin-top: 30px;
+  margin-bottom: -20px;
+  border-top:2px solid black;
+  border-left:2px solid black;
+  border-right:2px solid black;
 }
 
-.engligh_to_brail_braille_div{
+.english_to_braille_div{
   background-color:white;
   overflow:scroll;
-  max-height: 200px;
-  min-height:200px;
+  min-height:60px;
+  max-height:60px;
   width:60%;
   margin:auto;
   margin-top:20px;
-  border:2px solid black;
+  border-left:2px solid black;
+  border-right:2px solid black;
+  border-bottom:2px solid black;
+  text-align: center;
+  overflow: auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space:nowrap;
 }
 
-.engligh_to_brail_braille_div{
-  border:2px solid black;
+.english_to_braille_result_content{
+  text-align: left;
+  padding: 0 10px 10px 10px;
 }
