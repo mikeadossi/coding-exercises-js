@@ -65,58 +65,97 @@ export default class Finite_state_gate extends React.Component{
       return
     }
 
-    if(status = 'CLOSING'){
+    if(status === 'CLOSING'){
       this.setState({
         finite_state_status : 'STOPPED_WHILE_CLOSING'
       })
       return
     }
-    //
-    // if(status = 'STOPPED_WHILE_CLOSING'){
-    //   this.setState({
-    //     finite_state_status : 'OPENING'
-    //   })
-    //   let that = this;
-    //   setInterval( function(){
-    //     for(let i = fill; i > 0; i-10){
-    //       fill = i;
-    //       that.setState({
-    //         finite_state_fill : fill
-    //       });
-    //     }
-    //   }, 500)
-    //   this.setState({
-    //     finite_state_status : 'Gate: OPEN'
-    //   })
-    //   return
-    // }
-    //
-    // if(status = 'OPENING'){
-    //   this.setState({
-    //     finite_state_status : 'STOPPED_WHILE_OPENING'
-    //   })
-    //   return
-    // }
-    //
-    // if(status = 'STOPPED_WHILE_OPENING'){
-    //   this.setState({
-    //     finite_state_status : 'CLOSING'
-    //   })
-    //   let that = this;
-    //   setInterval( function(){
-    //     for(let i = fill; i < 100; i+10){
-    //       fill = i;
-    //       that.setState({
-    //         finite_state_fill : fill
-    //       });
-    //     }
-    //   }, 500)
-    //   this.setState({
-    //     finite_state_status : 'Gate: CLOSED'
-    //   })
-    //   return
-    // }
-    //
+
+    if(status === 'STOPPED_WHILE_CLOSING'){
+      this.setState({
+        finite_state_status : 'OPENING'
+      })
+      let that = this;
+
+      let run = function(){
+
+        setTimeout(function(){
+          fill -= 1;
+          that.setState({
+            finite_state_fill : fill
+          });
+
+          //listen for state change
+          if(that.state.stop_progress === true){
+            return
+          }
+
+          if(fill > 0){
+            run();
+          }
+          console.log('set')
+        }, 70)
+
+        if(fill < 2){
+          that.setState({
+            finite_state_status : 'Gate: OPEN',
+            stop_progress : true
+          })
+        }
+
+      }
+
+      run();
+      return
+    }
+
+    if(status === 'OPENING'){
+      this.setState({
+        finite_state_status : 'STOPPED_WHILE_OPENING'
+      })
+      console.log('STOPPED WHILE OPENING!!!')
+      return
+    }
+
+    if(status === 'STOPPED_WHILE_OPENING'){
+      this.setState({
+        finite_state_status : 'CLOSING'
+      })
+      let that = this;
+
+      // setTImeout runs once and is nonblocking when used in a for loop, so rather than writing a setTimeout inside a for loop write your loop inside the setTimeout call.
+      let run = function(){
+
+        setTimeout(function(){
+          fill += 1;
+          that.setState({
+            finite_state_fill : fill
+          });
+
+          //listen for state change
+          if(that.state.stop_progress === true){
+            return
+          }
+
+          if(fill < 100){
+            run();
+          }
+          console.log('set')
+        }, 70)
+
+        if(fill > 98){
+          that.setState({
+            finite_state_status : 'Gate: CLOSED'
+          })
+        }
+
+      }
+
+      run();
+      return
+    }
+
 
     if(status === 'Gate: CLOSED'){
       this.setState({
@@ -145,7 +184,8 @@ export default class Finite_state_gate extends React.Component{
         console.log('reverse fill => ',fill)
         if(fill < 2){
           that.setState({
-            finite_state_status : 'Gate: OPEN'
+            finite_state_status : 'Gate: OPEN',
+            stop_progress : true
           })
         }
 
