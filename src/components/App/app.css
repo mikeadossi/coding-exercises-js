@@ -50,6 +50,14 @@
   text-align:left;
 }
 
+input:focus{
+  outline:none;
+}
+
+button:focus{
+  outline:none;
+}
+
 @media (min-width: 0px) and (max-width:450px) {
   #app_container{
     background-color:steelblue;

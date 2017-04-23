@@ -22,7 +22,7 @@ export default class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      currentPage: "braille_page",
+      currentPage: "home_page",
       guess_random_num: 0,
       guess_input_value: 0,
       guesses_too_small: [],
@@ -33,7 +33,7 @@ export default class App extends React.Component{
 
   pageChange(pageName){
     this.setState({
-      currentPage: pageName
+      currentPage: pageName,
     })
   }
 
