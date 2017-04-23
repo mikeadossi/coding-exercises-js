@@ -1,0 +1,13 @@
+.appInputStyling{}
+
+.appButtonSyling{}
+
+.string_along_result_div{}
+
+.render_string_along_div{
+  color: grey;
+  font-size:2em;
+  max-width:50%;
+  margin:auto;
+  margin-top:10px;
+}

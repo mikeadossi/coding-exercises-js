@@ -47,3 +47,11 @@
 a{
   color:inherit;
 }
+
+.incomplete{
+  color:rgb(95,130,180);
+}
+
+.incomplete:hover{
+  color:rgb(95,130,180);
+}
