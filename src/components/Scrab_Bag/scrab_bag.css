@@ -204,7 +204,7 @@
   flex-shrink: 0;
   flex-wrap: wrap;
   margin:auto;
-  min-width:600px;
+  /*min-width:600px;*/
   max-width:600px;
 }
 
@@ -222,4 +222,24 @@
   justify-content: space-around;
   flex-shrink: 0;
   width:60%;
+}
+
+@media (min-width: 0px) and (max-width:454px) {
+
+  .display-scrabble-row{
+    max-width:179px;
+  }
+
+  .scrabbleBoard{
+    margin-top:32px;
+  }
+
+}
+
+@media (min-width: 454px) and (max-width:850px) {
+
+.display-scrabble-row{
+  max-width:402px;
+}
+
 }

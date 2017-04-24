@@ -73,6 +73,7 @@ a{
     position:absolute;
     margin:auto;
     height:0;
+    z-index:4;
   }
   .nav_top{
     background-color:steelblue;
