@@ -22,6 +22,8 @@ export default class Braille extends React.Component{
     e.preventDefault()
     this.refs.english_to_brail_input.value = '';
     let str = this.state.braille_english_input
+    str = str.replace(/[a-z]/g,function(f){return f.toUpperCase();})
+    str = str.replace(/\s/g, '')
 
     this.setState({
       braille_english_translated: str
@@ -167,7 +169,8 @@ export default class Braille extends React.Component{
     let topArr = [];
     let midArr = [];
     let baseArr = [];
-
+    let ace = ['B']
+    console.log('brailleCharacters[arr[0]][line[0]] => ',brailleCharacters[ace[0]][line[0]])
     for(let i = 0; i < numOfChar; i++){
         topArr.push(brailleCharacters[arr[i]][line[0]])
         topArr.push(['\xa0\xa0\xa0\xa0\xa0\xa0\xa0']) // create some padding
@@ -218,9 +221,11 @@ export default class Braille extends React.Component{
         <input onKeyPress={this.handleClick} onChange={this.saveEnglishToBrailleUserInput} ref="english_to_brail_input" className="appInputStyling" placeholder="english to braille"/>
         <button className="appButtonSyling" onClick={this.translateToBraille}>to braille!</button>
         </div>
+        <div className="english_to_braile_container">
         <div className="english_to_braille_result_header">Braille</div>
         <div className="english_to_braille_div">
           <div className="english_to_braille_result_content">{this.renderEnglishToBraille()}</div>
+        </div>
         </div>
       </div>
     )}

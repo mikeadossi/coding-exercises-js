@@ -1,3 +1,9 @@
+/*.english_to_braile_container{
+  min-width:100%;
+  max-width:100%;
+  margin:auto;;
+}*/
+
 .english_to_braille_result_header{
   background-color:silver;
   width:60%;
@@ -14,6 +20,8 @@
   overflow:scroll;
   min-height:60px;
   max-height:60px;
+  min-width:60%;
+  max-width:60%;
   width:60%;
   margin:auto;
   margin-top:20px;
