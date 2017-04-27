@@ -9,7 +9,7 @@ import The_Disemvowing from 'components/The_Disemvowing/The_Disemvowing';
 import Where_in_the_JSON from 'components/Where_in_the_JSON/Where_in_the_JSON';
 import Who_wants_a_date from 'components/Who_wants_a_date/Who_wants_a_date';
 import Play_it_again from 'components/Play_it_again/Play_it_again';
-import Parents_B_Gone from 'components/Parents_B_Gone/Parents_B_Gone';
+import Parens_B_Gone from 'components/Parens_B_Gone/Parens_B_Gone';
 import Resolving_symlinks from 'components/Resolving_Symlinks/Resolving_Symlinks';
 import Lairotcaf from 'components/Lairotcaf/Lairotcaf';
 import String_me_along from 'components/String_me_along/String_me_along';

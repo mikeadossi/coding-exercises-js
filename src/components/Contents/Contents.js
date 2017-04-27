@@ -9,7 +9,7 @@ import The_Disemvowing from 'components/The_Disemvowing/The_Disemvowing';
 import Where_in_the_JSON from 'components/Where_in_the_JSON/Where_in_the_JSON';
 import Who_wants_a_date from 'components/Who_wants_a_date/Who_wants_a_date';
 import Play_it_again from 'components/Play_it_again/Play_it_again';
-import Parents_B_Gone from 'components/Parents_B_Gone/Parents_B_Gone';
+import Parens_B_Gone from 'components/Parens_B_Gone/Parens_B_Gone';
 import Resolving_Symlinks from 'components/Resolving_Symlinks/Resolving_Symlinks';
 import Lairotcaf from 'components/Lairotcaf/Lairotcaf';
 import String_me_along from 'components/String_me_along/String_me_along';
@@ -30,7 +30,7 @@ export default class Content extends React.Component{
       where_in_the_JSON: { program:<Where_in_the_JSON /> },
       who_wants_a_date: { program:<Who_wants_a_date /> },
       play_it_again: { program:<Play_it_again /> },
-      parents_B_Gone: { program:<Parents_B_Gone /> },
+      parens_b_gone: { program:<Parens_B_Gone /> },
       resolving_symlinks: { program:<Resolving_Symlinks /> },
       lairotcaf: { program:<Lairotcaf /> },
       string_me_along: {program: <String_me_along /> },
@@ -54,7 +54,7 @@ export default class Content extends React.Component{
             {this.props.pageName == "where_in_the_JSON_page" ? this.state.where_in_the_JSON.program : null }
             {this.props.pageName == "who_wants_a_date_page" ? this.state.who_wants_a_date.program : null }
             {this.props.pageName == "play_it_again_page" ? this.state.play_it_again.program : null }
-            {this.props.pageName == "parents_B_Gone_page" ? this.state.parents_B_Gone.program : null }
+            {this.props.pageName == "parens_b_gone_page" ? this.state.parens_b_gone.program : null }
             {this.props.pageName == "resolving_symlinks_page" ? this.state.resolving_symlinks.program : null }
             {this.props.pageName == "lairotcaf_page" ? this.state.lairotcaf.program : null }
             {this.props.pageName == "string_me_along_page" ? this.state.string_me_along.program : null }
