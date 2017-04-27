@@ -61,7 +61,7 @@ export default class Nav extends React.Component{
       <button className="nav_link incomplete" onClick={()=>{this.props.pageChange("where_in_the_JSON_page"); this.navCloseMenu()}}>where in the JSON</button>
         <button className="nav_link" onClick={()=>{this.props.pageChange("who_wants_a_date_page"); this.navCloseMenu()}}>who wants a date</button>
       <button className="nav_link incomplete" onClick={()=>{this.props.pageChange("play_it_again_page"); this.navCloseMenu()}}>play it gain</button>
-      <button className="nav_link incomplete" onClick={()=>{this.props.pageChange("parents_B_Gone_page"); this.navCloseMenu()}}>parents b gone</button>
+    <button className="nav_link incomplete" onClick={()=>{this.props.pageChange("parens_b_gone_page"); this.navCloseMenu()}}>parens b gone</button>
       <button className="nav_link incomplete" onClick={()=>{this.props.pageChange("resolving_symlinks_page"); this.navCloseMenu()}}>resolving symlinks</button>
         <button className="nav_link" onClick={()=>{this.props.pageChange("lairotcaf_page"); this.navCloseMenu()}}>lairotcaf</button>
       <button className="nav_link" onClick={()=>{this.props.pageChange("string_me_along_page"); this.navCloseMenu()}}>string me along</button>
