@@ -4,13 +4,8 @@ import Nav from 'components/Nav/Nav';
 import Guess from 'components/Guess_the_Number/Guess_the_num';
 import Scrab_Bag from 'components/Scrab_Bag/Scrab_Bag';
 import String_Indices from 'components/String_Indices/String_Indices';
-import Fibonnacci_Bases from 'components/Fibonnacci_Bases/Fibonnacci_Bases';
 import The_Disemvowing from 'components/The_Disemvowing/The_Disemvowing';
-import Where_in_the_JSON from 'components/Where_in_the_JSON/Where_in_the_JSON';
 import Who_wants_a_date from 'components/Who_wants_a_date/Who_wants_a_date';
-import Play_it_again from 'components/Play_it_again/Play_it_again';
-import Parents_B_Gone from 'components/Parents_B_Gone/Parents_B_Gone';
-import Resolving_symlinks from 'components/Resolving_Symlinks/Resolving_Symlinks';
 import Lairotcaf from 'components/Lairotcaf/Lairotcaf';
 import String_me_along from 'components/String_me_along/String_me_along';
 import Braille from 'components/Braille/Braille';
@@ -41,7 +36,7 @@ export default class App extends React.Component{
     return(
       <div id="app_container">
         <Nav pageChange={this.pageChange.bind(this)} />
-      <div id="app_contents">
+        <div id="app_contents">
           <Content pageName={this.state.currentPage}/>
         </div>
       </div>

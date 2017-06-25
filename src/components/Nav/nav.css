@@ -14,6 +14,7 @@
   color:white;
   display:block;
   width:200px;
+  padding: 10px 0 10px 0;
 }
 
 .nav_header{
@@ -128,6 +129,8 @@ a{
     font-size:15px;
     border-left:1px solid black;
     border-bottom:1px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
   .nav_header{
     margin:auto;
@@ -143,7 +146,7 @@ a{
     width:10%;
     border:none;
     position:absolute;
-    padding-top:10px;
+    padding-top:18px;
   }
   #content_page{
     margin-top:40px;
@@ -154,5 +157,8 @@ a{
 
   .display_block{
     display:block;
+  }
+  .nav_finite_state_gate{
+    width:100%;
   }
 }
