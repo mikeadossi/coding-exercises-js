@@ -21,7 +21,7 @@ export default class Content extends React.Component{
       scrab_bag: { program:<Scrab_Bag /> },
       string_indices: { program:<String_Indices /> },
       the_disemvowing: { program:<The_Disemvowing /> },
-      who_wants_a_date: { program:<Who_wants_a_date /> }, 
+      who_wants_a_date: { program:<Who_wants_a_date /> },
       lairotcaf: { program:<Lairotcaf /> },
       string_me_along: {program: <String_me_along /> },
       braille: { program: <Braille /> },
