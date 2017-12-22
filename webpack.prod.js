@@ -1,10 +1,11 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     devtool: 'inline-source-map',
     entry: [
-        'webpack-dev-server/client?http://0.0.0.0:'+process.env.PORT ,
+        'webpack-dev-server/client?http://127.0.0.1:8080/',
         'webpack/hot/only-dev-server',
         './src'
     ],
@@ -31,6 +32,7 @@ module.exports = {
     },
     plugins: [ // add plugins independent of webpack
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.NoErrorsPlugin(),
+        new UglifyJSPlugin()
     ]
 };
