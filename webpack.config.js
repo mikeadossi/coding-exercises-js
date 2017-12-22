@@ -3,11 +3,21 @@ var path = require('path');
 
 module.exports = {
     devtool: 'inline-source-map',
-    entry: [
-        'webpack-dev-server/client?0.0.0.0:'+process.env.PORT ,
-        'webpack/hot/only-dev-server',
-        './src'
-    ],
+    entry: {
+        main: [
+            'webpack/hot/only-dev-server',
+            './src/index.js'
+        ],
+    },
+    devServer: {
+        disableHostCheck: true,
+        //contentBase: './src/', // Relative directory for base of server
+        hot: true, // Live-reload
+        inline: true,
+        port: process.env.PORT, // Port Number
+        host: '0.0.0.0', // Change to '0.0.0.0' for external facing server
+        //historyApiFallback: true,
+    },
     output: {
         path: path.join(__dirname, 'public'),
         filename: 'bundle.js'
@@ -18,16 +28,16 @@ module.exports = {
     },
     module: {
         loaders: [ // load the modules we'll be using: jsx, node_mod, react-hot ...
-        {
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
-        },
-        {
-          test: /\.css$/,
-          loader: 'style!css'
-        },
-      ]
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
+            },
+            {
+                test: /\.css$/,
+                loader: 'style!css'
+            },
+        ]
     },
     plugins: [ // add plugins independent of webpack
         new webpack.HotModuleReplacementPlugin(),
