@@ -4,7 +4,7 @@ var path = require('path');
 module.exports = {
     devtool: 'inline-source-map',
     entry: [
-        'webpack-dev-server/client?http://0.0.0.0:'+process.env.PORT ,
+        'webpack-dev-server/client?0.0.0.0:'+process.env.PORT ,
         'webpack/hot/only-dev-server',
         './src'
     ],
